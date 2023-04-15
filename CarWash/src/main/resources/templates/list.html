@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>List of Cars</title>
+  <style>
+    dd{
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<h1>List of Cars</h1>
+<table>
+  <thead>
+  <div class="dd">
+  <a  th:href="@{/add}">Add Car</a>
+  </div>
+  <tr>
+    <th> Plate_no</th>&nbsp;
+    <th>Names</th>&nbsp;
+    <th>Email</th>&nbsp;
+    <th>Phone Number</th>&nbsp;
+    <th>date</th>&nbsp;
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="md : ${car}">
+    <td th:text="${md.Plate_no}"></td>
+    <td th:text="${md.Names}"></td>
+    <td th:text="${md.Email}"></td>
+    <td th:text="${md.Phone}"></td>
+    <td th:text="${md.date}"></td>
+    <td>
+      <a th:href="@{/edit/{id}(id=${md.Plate_no})}">Update</a>
+      <a th:href="@{/delete/{id}(id=${md.Plate_no})}">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

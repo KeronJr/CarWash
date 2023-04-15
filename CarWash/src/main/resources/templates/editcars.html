@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+h1{
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+<form th:action="@{/edit}" th:object="${cars}" method="post">
+    <h1>UPDATE</h1>
+    <div >
+        <div >
+            <label>Plate Number</label>
+            <input type="text"
+                   placeholder="RAC100A"
+                   th:field="*{plate_no}"
+                   required>
+
+        </div>
+        <div class="col-md-4 mb-3">
+            <label >Full names</label>
+            <input placeholder="Otto" required th:field="*{names}" type="text">
+
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label >Email address</label>
+            <input type="email" placeholder="Enter email" th:field="*{email}">
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label >Phone</label>
+            <input type="text"  placeholder="Phone number" th:field="*{phone}" required>
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label >Date</label>
+            <input type="date" th:field="*{date}" required>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+</body>
+</html>
